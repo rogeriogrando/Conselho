@@ -1,0 +1,13 @@
+# logs directory 
+logs
+
+npm-debug.log
+
+# dependency directory
+node_modules
+
+# .env file
+.env
+
+# util load
+/util/load.js

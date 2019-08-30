@@ -1,0 +1,20 @@
+[
+    {
+      "model": "Papeis",
+      "data": {
+        "nome": "admin"
+       }
+    },
+    {
+      "model": "Papeis",
+      "data": {
+        "nome": "conselho"
+       }
+    },
+    {
+      "model": "Papeis",
+      "data":{
+        "nome": "instituicoes"
+      }
+    }
+  ]

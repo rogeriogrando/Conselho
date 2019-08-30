@@ -1,0 +1,14 @@
+SERVER_HOST=localhost
+SERVER_PORT=8000
+
+DB_HOST=localhost
+DB_USER=postgres
+DB_PORT=5432
+DB_PASS=postgres
+DB_NAME=conselho
+
+JWT=secret
+
+PROXY_USER=
+PROXY_PASSWORD=
+PROXY_HOST=

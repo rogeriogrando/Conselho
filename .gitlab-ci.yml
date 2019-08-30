@@ -1,0 +1,43 @@
+image: docker:git
+
+services:
+  - docker:dind
+
+stages:   
+  - build
+  - test
+  - release
+
+variables:
+  SERVER_TEST_IMAGE: registry.gitlab.com/fab.soft.fatecitapetininga/conselho_api:$CI_BUILD_REF_NAME
+  SERVER_RELEASE_IMAGE: registry.gitlab.com/fab.soft.fatecitapetininga/conselho_api:latest
+  SERVER_NGINX_IMAGE: registry.gitlab.com/fab.soft.fatecitapetininga/conselho_api:nginx
+
+before_script:
+  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+
+build-server:
+  stage: build
+  script:
+    - chmod +x /builds/fab.soft.fatecitapetininga/conselho_api/scripts/test
+    - chmod +x /builds/fab.soft.fatecitapetininga/conselho_api/scripts/server
+    - chmod +x /builds/fab.soft.fatecitapetininga/conselho_api/scripts/bootstrap  
+    - docker build --pull -t $SERVER_TEST_IMAGE .
+    - docker push $SERVER_TEST_IMAGE
+    
+test-server:
+  stage: test
+  script:
+    - docker pull $SERVER_TEST_IMAGE
+    - docker run -d --name redis -p 6379:6379 redis
+    - docker run -d --name postgres -p 5432:5432 -e DB_USER=template -e DB_PASS=template -e DB_NAME=conselho_test sameersbn/postgresql:9.6-2
+    - docker run --link redis:redis --link postgres:postgres -e DB_USER=template -e DB_PASS=template -e DB_NAME=conselho $SERVER_TEST_IMAGE npm test
+
+release-server:
+  stage: release
+  script:
+    - docker pull $SERVER_TEST_IMAGE
+    - docker tag $SERVER_TEST_IMAGE $SERVER_RELEASE_IMAGE
+    - docker push $SERVER_RELEASE_IMAGE
+  only:
+    - master
