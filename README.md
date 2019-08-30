@@ -8,7 +8,10 @@ Hapi-API-boilerplate Node(8.1.0)
 
 [![js-semistandard-style](https://cdn.rawgit.com/flet/semistandard/master/badge.svg)](https://github.com/Flet/semistandard)
 
-Este é um boilerplate baseado no projeto [start-hapiness](https://github.com/thebergamo/start-hapiness) que utiliza Hapi.js e MongoDB, porém foi alterado para aplicar os frameworks Hapi.js e Sequelize(PostgreSQL).
+Backend do sistema do Conselho Tutelar.
+Este sistema busca melhorar o atendimento do conselho tutelar, gerenciando e monitoramento de cada criança cadastrada no sistema.
+
+Este é baseado no projeto [start-hapiness](https://github.com/thebergamo/start-hapiness) que utiliza Hapi.js e MongoDB, porém foi alterado para aplicar os frameworks Hapi.js e Sequelize(PostgreSQL).
 
 #### Estrutura do Projeto
 Na raiz, temos os diretórios: `scripts`, `data` e `src`. 
