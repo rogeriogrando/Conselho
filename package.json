@@ -46,7 +46,7 @@
     "k7": "1.0.2",
     "k7-sequelize": "git+https://github.com/FernandoCagale/k7-sequelize.git",
     "lodash": "4.15.0",
-    "redis": "^2.6.3",
+    "redis": "^3.1.1",
     "rotating-file-stream": "^1.0.5",
     "vision": "^4.1.0"
   }
