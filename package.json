@@ -42,7 +42,7 @@
     "hapi-version": "^2.1.1",
     "inert": "^4.0.0",
     "joi": "^9.0.4",
-    "jsonwebtoken": "^7.0.0",
+    "jsonwebtoken": "^9.0.0",
     "k7": "1.0.2",
     "k7-sequelize": "git+https://github.com/FernandoCagale/k7-sequelize.git",
     "lodash": "4.15.0",
